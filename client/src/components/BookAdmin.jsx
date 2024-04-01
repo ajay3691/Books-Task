@@ -6,17 +6,18 @@ function Admin() {
   const [books, setBooks] = useState([]);
 
   useEffect(() => {
-    fetchBooks();
-  }, []);
+    const fetchBooks = async () => {
+      try {
+        const response = await axios.get('https://books-task-lemon.vercel.app/book/books');
+        setBooks(response.data);
+      } catch (error) {
+        console.error('Error fetching books:', error);
+      }
+    };
 
-  const fetchBooks = async () => {
-    try {
-      const response = await axios.get('https://books-task-lemon.vercel.app/book/books');
-      setBooks(response.data);
-    } catch (error) {
-      console.error('Error fetching books:', error);
-    }
-  };
+    fetchBooks(); // Call fetchBooks function when the component mounts
+
+  }, []); 
 
   const handleDelete = async (id) => {
     try {

@@ -11,7 +11,7 @@ function Admin() {
 
   const fetchBooks = async () => {
     try {
-      const response = await axios.get('http://localhost:5000/book/books');
+      const response = await axios.get('https://books-task-lemon.vercel.app/book/books');
       setBooks(response.data);
     } catch (error) {
       console.error('Error fetching books:', error);
@@ -20,7 +20,7 @@ function Admin() {
 
   const handleDelete = async (id) => {
     try {
-      await axios.delete(`http://localhost:5000/book/books/${id}`);
+      await axios.delete(`https://books-task-lemon.vercel.app/book/books/${id}`);
       setBooks(books.filter(book => book._id !== id));
     } catch (error) {
       console.error('Error deleting book:', error);

@@ -18,7 +18,7 @@ function BookEdit() {
 
   useEffect(() => {
     axios
-      .get(`http://localhost:5000/book/books/${id}`)
+      .get(`https://books-task-lemon.vercel.app/book/books/${id}`)
       .then((resp) => {
         setBook(resp.data);
       })
@@ -31,7 +31,7 @@ function BookEdit() {
     event.preventDefault();
 
     axios
-      .put(`http://localhost:5000/book/books/${id}`, book)
+      .put(`https://books-task-lemon.vercel.app/book/books/${id}`, book)
       .then((resp) => {
         navigate('/bookAdmin');
       })

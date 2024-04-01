@@ -20,7 +20,7 @@ function CreateBook() {
         published_date: publishedDate
       };
 
-      await axios.post('http://localhost:5000/book/books', formData);
+      await axios.post('https://books-task-lemon.vercel.app/book/books', formData);
       navigate('/bookAdmin'); // Redirect to the admin page after successful book creation
     } catch (error) {
       console.error('Error creating book:', error);
